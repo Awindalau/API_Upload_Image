@@ -55,10 +55,10 @@ def upload_file():
         image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         success = True
     else:
-        error[image.filename] = "File tipe tidak diijinkan"
+        error[image.filename] = "File Tipe Tidak Diijinkan"
  
     if success and error:
-        error['Message'] = "File gagal terupload"
+        error['Message'] = "File Gagal Diupload"
         resp = jsonify(error)
         resp.status_code = 500
         return resp
@@ -71,7 +71,7 @@ def upload_file():
             db.session.add(data)
             db.session.commit()
             
-            resp = jsonify({'message' : 'File berhasil diunggah'})
+            resp = jsonify({'message' : 'File Berhasil Diunggah'})
             resp.status_code = 201
             return resp
         except Exception as e:
